@@ -59,14 +59,6 @@ class BaseResponse extends AbstractResponse
     }
 
     /**
-     * @return null|string
-     */
-    public function getInformationLink()
-    {
-        return $this->data['information_link'] ?? null;
-    }
-
-    /**
      * @return null|string A response code from the payment gateway
      */
     public function getCode()
