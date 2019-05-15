@@ -94,25 +94,6 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     }
 
     /**
-     * Get OAuth 2.0 access token.
-     *
-     * @return string
-     */
-    public function getToken(): string
-    {
-        return $this->getParameter('token');
-    }
-
-    /**
-     * @param string $value
-     * @return $this
-     */
-    public function setToken($value): string
-    {
-        return $this->setParameter('token', $value);
-    }
-
-    /**
      * @return mixed
      */
     public function getPayerId()
