@@ -1,0 +1,15 @@
+HTTP/1.1 200 OK
+Date: Tue, 14 May 2019 05:23:40 GMT
+Server: Apache
+paypal-debug-id: a0425eea6c76d
+X-PAYPAL-TOKEN-SERVICE: IAAS
+HTTP_X_PP_AZ_LOCATOR: sandbox.slc
+Paypal-Debug-Id: a0425eea6c76d
+Set-Cookie: X-PP-SILOVER=name%3DSANDBOX3.API.1%26silo_version%3D1880%26app%3Dapiplatformproxyserv%26TIME%3D3696286300%26HTTP_X_PP_AZ_LOCATOR%3Dsandbox.slc; Expires=Tue, 14 May 2019 05:53:40 GMT; domain=.paypal.com; path=/; Secure; HttpOnly
+Set-Cookie: X-PP-SILOVER=; Expires=Thu, 01 Jan 1970 00:00:01 GMT
+Vary: Authorization
+Content-Length: 503
+Connection: close
+Content-Type: application/json
+
+{"scope":"https://api.paypal.com/v1/payments/.* https://api.paypal.com/v1/developer/.* openid https://api.paypal.com/v1/vault/credit-card/.* https://uri.paypal.com/services/applications/webhooks https://api.paypal.com/v1/vault/credit-card","access_token":"A21AAEpcd8Cn35EV5og-5Pxp14EvaHZdjNk2Tj5k0JZqXSCIE7BpZb","token_type":"Bearer","app_id":"APP-12345","expires_in":31729,"nonce":"2019-05-14T05:12:29ZtWss9TE5wMnGJmbyVUSGBrLOOe6IutRAw6_a1JuCXt4"}

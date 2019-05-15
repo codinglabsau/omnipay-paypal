@@ -1,0 +1,30 @@
+{
+  "name": "codinglabsau/omnipay-paypal-v2",
+  "type": "library",
+  "description": "PayPal gateway for Omnipay payment processing library that supports PayPals V2 API.",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Zach Moore",
+      "email": "zach@codinglabs.io"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Omnipay\\PayPal\\": "src/"
+    },
+    "files": [
+      "src/helpers.php"
+    ]
+  },
+  "require": {
+    "omnipay/common": "^3",
+    "paypal/paypal-checkout-sdk": "^1.0",
+    "ext-json": "*"
+  },
+  "require-dev": {
+    "omnipay/tests": "^3",
+    "phpunit/phpunit": "^6"
+  },
+  "prefer-stable": true
+}
