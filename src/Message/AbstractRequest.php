@@ -127,7 +127,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
      */
     protected function getEndpoint()
     {
-        return $this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint . '/' . self::API_VERSION;
+        return ($this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint) . '/' . self::API_VERSION;
     }
 
     /**

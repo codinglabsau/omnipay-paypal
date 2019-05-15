@@ -28,7 +28,7 @@ class RestTokenRequest extends AbstractRequest
      */
     protected function getEndpoint(): string
     {
-        return $this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint . '/v1/oauth2/token';
+        return ($this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint) . '/v1/oauth2/token';
     }
 
     /**
