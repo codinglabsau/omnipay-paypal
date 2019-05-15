@@ -27,12 +27,12 @@ use Omnipay\PayPal\Message\RestTokenRequest;
  * $gateway = Omnipay::create('PayPal_Checkout');
  *
  * // Initialise the gateway
- * $gateway->initialize(array(
- *     'token' => 'PayPalClientId:PayPalSecret'
+ * $gateway->initialize([
+ *     'token' => 'MyPayPalToken',
  *     'clientId' => 'MyPayPalClientId',
  *     'secret'   => 'MyPayPalSecret',
  *     'testMode' => true, // Or false when you are ready for live transactions
- * ));
+ * ]);
  */
 class CheckoutGateway extends AbstractGateway
 {
