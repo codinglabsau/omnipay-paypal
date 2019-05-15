@@ -19,7 +19,7 @@ class RestTokenRequest extends AbstractRequest
      */
     public function getData(): array
     {
-        return [];
+        return ['grant_type' => 'client_credentials'];
     }
 
     /**
@@ -28,8 +28,7 @@ class RestTokenRequest extends AbstractRequest
      */
     protected function getEndpoint(): string
     {
-        $base = $this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint;
-        return $base . '/v1' . '/oauth2/token';
+        return $this->getTestMode() ? $this->testEndpoint : $this->liveEndpoint . '/v1/oauth2/token';
     }
 
     /**
