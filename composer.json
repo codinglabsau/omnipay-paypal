@@ -19,7 +19,6 @@
   },
   "require": {
     "omnipay/common": "^3",
-    "paypal/paypal-checkout-sdk": "^1.0",
     "ext-json": "*"
   },
   "require-dev": {
