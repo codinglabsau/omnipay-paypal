@@ -11,5 +11,6 @@ The following gateways and functions are provided by this package:
 
 * PayPal_Checkout (PayPal Checkout)
     * `completePurchase()`
+    * `authorize()`
 
 For general usage instructions, please see the main [Omnipay](https://github.com/thephpleague/omnipay) repository.
