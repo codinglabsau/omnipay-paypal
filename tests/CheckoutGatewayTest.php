@@ -103,6 +103,6 @@ class CheckoutGatewayTest extends GatewayTestCase
 
         $this->assertFalse($response->isSuccessful());
         $this->assertNull($response->getTransactionReference());
-        $this->assertSame('Authorization failed due to insufficient permissions, or failed business validation.', $response->getMessage());
+        $this->assertSame('This request is invalid due to the current state of the payment.', $response->getMessage());
     }
 }
