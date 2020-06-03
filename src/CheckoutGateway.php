@@ -3,9 +3,9 @@
 namespace Omnipay\PayPal;
 
 use Omnipay\Common\AbstractGateway;
-use Omnipay\PayPal\Message\AuthorizeRequest;
 use Omnipay\PayPal\Message\CaptureRequest;
 use Omnipay\Common\Message\AbstractRequest;
+use Omnipay\PayPal\Message\AuthorizeRequest;
 use Omnipay\PayPal\Message\RestTokenRequest;
 
 /**
