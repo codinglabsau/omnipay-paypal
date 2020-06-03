@@ -10,7 +10,7 @@ processing library for PHP. This package implements PayPal v2 API support for Om
 The following gateways and functions are provided by this package:
 
 * PayPal_Checkout (PayPal Checkout)
-    * `completePurchase()`
     * `authorize()`
+    * `completePurchase()`
 
 For general usage instructions, please see the main [Omnipay](https://github.com/thephpleague/omnipay) repository.
