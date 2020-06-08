@@ -52,7 +52,7 @@ class ResponseTest extends TestCase
 
         $this->assertFalse($response->isSuccessful());
         $this->assertNull($response->getTransactionReference());
-        $this->assertEquals('Authorization failed due to insufficient permissions, or failed business validation.', $response->getMessage());
+        $this->assertEquals('This request is invalid due to the current state of the payment.', $response->getMessage());
     }
 
     public function testTokenFailure()
