@@ -51,11 +51,9 @@ class AuthorizeRequest extends AbstractRequest
     public function getData()
     {
         $this->validate('orderId');
-        $this->validate('payerId');
 
         return [
             'order_id' => $this->getOrderId(),
-            'payer_id' => $this->getPayerId()
         ];
     }
 

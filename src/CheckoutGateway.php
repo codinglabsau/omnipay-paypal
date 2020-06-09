@@ -229,7 +229,7 @@ class CheckoutGateway extends AbstractGateway
     }
 
     /**
-     * @param array $parameters ['order_id', 'payer_id]
+     * @param array $parameters ['order_id']
      * @return AbstractRequest
      */
     public function authorize(array $parameters = [])
