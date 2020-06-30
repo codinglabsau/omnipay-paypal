@@ -34,14 +34,6 @@ class AuthorizeRequest extends AbstractRequest
     }
 
     /**
-     * @return mixed
-     */
-    public function getPayerId()
-    {
-        return $this->getParameter('payerId');
-    }
-
-    /**
      * Get the raw data array for this message. The format of this varies from gateway to
      * gateway, but will usually be either an associative array, or a SimpleXMLElement.
      *

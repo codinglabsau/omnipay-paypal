@@ -34,6 +34,13 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
      */
     protected $liveEndpoint = 'https://api.paypal.com';
 
+    /**
+     * PayPal Payer ID
+     *
+     * @var string PayerID
+     */
+    protected $payerId = null;
+
     protected $referrerCode;
 
     /**
@@ -84,6 +91,23 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
     public function setSecret($value): AbstractRequest
     {
         return $this->setParameter('secret', $value);
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPayerId()
+    {
+        return $this->getParameter('payerId');
+    }
+
+    /**
+     * @param $value
+     * @return AbstractRequest
+     */
+    public function setPayerId($value): AbstractRequest
+    {
+        return $this->setParameter('payerId', $value);
     }
 
     /**
