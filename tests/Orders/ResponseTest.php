@@ -31,6 +31,30 @@ class ResponseTest extends TestCase
         $this->assertEquals('This request is invalid due to the current state of the payment', $response->getMessage());
     }
 
+    public function testAuthorizeSuccess()
+    {
+        $httpResponse = $this->getMockHttpResponse('RestAuthorizeSuccess.txt');
+        $data = json_decode($httpResponse->getBody()->getContents(), true);
+
+        $response = new OrdersResponse($this->getMockRequest(), $data, $httpResponse->getStatusCode());
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertEquals('d9f80740-38f0-11e8-b467-0ed5f89f718b', $response->getTransactionReference());
+        $this->assertEquals('COMPLETED', $response->getStatus());
+    }
+
+    public function testAuthorizeFailure()
+    {
+        $httpResponse = $this->getMockHttpResponse('RestAuthorizeFailure.txt');
+        $data = json_decode($httpResponse->getBody()->getContents(), true);
+
+        $response = new OrdersResponse($this->getMockRequest(), $data, $httpResponse->getStatusCode());
+
+        $this->assertFalse($response->isSuccessful());
+        $this->assertNull($response->getTransactionReference());
+        $this->assertEquals('This request is invalid due to the current state of the payment.', $response->getMessage());
+    }
+
     public function testTokenFailure()
     {
         $httpResponse = $this->getMockHttpResponse('RestTokenFailure.txt');

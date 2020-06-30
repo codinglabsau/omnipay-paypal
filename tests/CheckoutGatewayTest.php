@@ -27,6 +27,7 @@ class CheckoutGatewayTest extends GatewayTestCase
 
         $this->params = [
             'order_id' => 'test',
+            'payer_id' => 'QYR5Z8XDVJNXQ'
         ];
     }
 
@@ -81,5 +82,27 @@ class CheckoutGatewayTest extends GatewayTestCase
         $this->assertTrue($response->isSuccessful());
         $this->assertEquals('d9f80740-38f0-11e8-b467-0ed5f89f718b', $response->getTransactionReference());
         $this->assertNull($response->getMessage());
+    }
+
+    public function testAuthorizeSuccess()
+    {
+        $this->setMockHttpResponse('RestAuthorizeSuccess.txt');
+
+        $response = $this->gateway->authorize($this->params)->send();
+
+        $this->assertTrue($response->isSuccessful());
+        $this->assertEquals('d9f80740-38f0-11e8-b467-0ed5f89f718b', $response->getTransactionReference());
+        $this->assertNull($response->getMessage());
+    }
+
+    public function testAuthorizeFailure()
+    {
+        $this->setMockHttpResponse('RestAuthorizeFailure.txt');
+
+        $response = $this->gateway->authorize($this->params)->send();
+
+        $this->assertFalse($response->isSuccessful());
+        $this->assertNull($response->getTransactionReference());
+        $this->assertSame('This request is invalid due to the current state of the payment.', $response->getMessage());
     }
 }
