@@ -11,14 +11,17 @@ use Omnipay\PayPal\Message\RestTokenRequest;
 /**
  * PayPal Checkout Class
  *
- * @method \Omnipay\Common\Message\RequestInterface capture(array $options = [])
+ * @method \Omnipay\Common\Message\RequestInterface void(array $options = [])
  * @method \Omnipay\Common\Message\RequestInterface refund(array $options = [])
+ * @method \Omnipay\Common\Message\RequestInterface capture(array $options = [])
+ * @method \Omnipay\Common\Message\RequestInterface purchase(array $options = [])
  * @method \Omnipay\Common\Message\RequestInterface createCard(array $options = [])
  * @method \Omnipay\Common\Message\RequestInterface updateCard(array $options = [])
  * @method \Omnipay\Common\Message\RequestInterface deleteCard(array $options = [])
- * @method \Omnipay\Common\Message\RequestInterface void(array $options = [])
+ * @method \Omnipay\Common\Message\RequestInterface authorize(array $options = array())
+ * @method \Omnipay\Common\Message\RequestInterface fetchTransaction(array $options = [])
  * @method \Omnipay\Common\Message\RequestInterface completeAuthorize(array $options = [])
- * @method \Omnipay\Common\Message\RequestInterface purchase(array $options = [])
+ * @method \Omnipay\Common\Message\RequestInterface acceptNotification(array $options = array())
  *
  * ### Example
  * // Create a gateway for the PayPal CheckoutGateway
