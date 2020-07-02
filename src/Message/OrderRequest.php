@@ -6,16 +6,21 @@ use Omnipay\Common\Exception\InvalidRequestException;
 
 /**
  * <code>
- *   // Before the transaction has been processed, we need to authorize it.
- *   $transaction = $gateway->authorize([
+ *   // Fetch an order.
+ *   $transaction = $gateway->fetchOrder([
  *       'order_id' => '123',
  *   ]);
  * </code>
  *
- * @link https://developer.paypal.com/docs/api/orders/v2/#orders_authorize
+ * @link https://developer.paypal.com/docs/api/orders/v2/#orders_get
  */
-class AuthorizeRequest extends AbstractRequest
+class OrderRequest extends AbstractRequest
 {
+    protected function getHttpMethod(): string
+    {
+        return 'GET';
+    }
+
     /**
      * @return mixed
      */
@@ -54,7 +59,7 @@ class AuthorizeRequest extends AbstractRequest
      */
     public function getEndpoint(): string
     {
-        return parent::getEndpoint() . '/checkout/orders/' . $this->getOrderId() . '/authorize';
+        return parent::getEndpoint() . '/checkout/orders/' . $this->getOrderId();
     }
 
     /**

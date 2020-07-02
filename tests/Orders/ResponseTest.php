@@ -31,28 +31,27 @@ class ResponseTest extends TestCase
         $this->assertEquals('This request is invalid due to the current state of the payment', $response->getMessage());
     }
 
-    public function testAuthorizeSuccess()
+    public function testFetchOrderSuccess()
     {
-        $httpResponse = $this->getMockHttpResponse('RestAuthorizeSuccess.txt');
+        $httpResponse = $this->getMockHttpResponse('RestFetchOrderSuccess.txt');
         $data = json_decode($httpResponse->getBody()->getContents(), true);
 
         $response = new OrdersResponse($this->getMockRequest(), $data, $httpResponse->getStatusCode());
 
         $this->assertTrue($response->isSuccessful());
-        $this->assertEquals('d9f80740-38f0-11e8-b467-0ed5f89f718b', $response->getTransactionReference());
-        $this->assertEquals('COMPLETED', $response->getStatus());
+        $this->assertEquals('0L3952582F3664834', $response->getData()['id']);
+        $this->assertEquals('APPROVED', $response->getStatus());
     }
 
-    public function testAuthorizeFailure()
+    public function testFetchOrderFailure()
     {
-        $httpResponse = $this->getMockHttpResponse('RestAuthorizeFailure.txt');
+        $httpResponse = $this->getMockHttpResponse('RestFetchOrderFailure.txt');
         $data = json_decode($httpResponse->getBody()->getContents(), true);
 
         $response = new OrdersResponse($this->getMockRequest(), $data, $httpResponse->getStatusCode());
 
         $this->assertFalse($response->isSuccessful());
-        $this->assertNull($response->getTransactionReference());
-        $this->assertEquals('This request is invalid due to the current state of the payment.', $response->getMessage());
+        $this->assertEquals('The specified resource does not exist.', $response->getMessage());
     }
 
     public function testTokenFailure()

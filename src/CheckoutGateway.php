@@ -3,9 +3,9 @@
 namespace Omnipay\PayPal;
 
 use Omnipay\Common\AbstractGateway;
+use Omnipay\PayPal\Message\OrderRequest;
 use Omnipay\PayPal\Message\CaptureRequest;
 use Omnipay\Common\Message\AbstractRequest;
-use Omnipay\PayPal\Message\AuthorizeRequest;
 use Omnipay\PayPal\Message\RestTokenRequest;
 
 /**
@@ -223,17 +223,17 @@ class CheckoutGateway extends AbstractGateway
      * @param array $parameters ['order_id']
      * @return AbstractRequest
      */
-    public function completePurchase(array $parameters = [])
+    public function fetchOrder(array $parameters = [])
     {
-        return $this->createRequest(CaptureRequest::class, $parameters);
+        return $this->createRequest(OrderRequest::class, $parameters);
     }
 
     /**
      * @param array $parameters ['order_id']
      * @return AbstractRequest
      */
-    public function authorize(array $parameters = [])
+    public function completePurchase(array $parameters = [])
     {
-        return $this->createRequest(AuthorizeRequest::class, $parameters);
+        return $this->createRequest(CaptureRequest::class, $parameters);
     }
 }

@@ -84,25 +84,25 @@ class CheckoutGatewayTest extends GatewayTestCase
         $this->assertNull($response->getMessage());
     }
 
-    public function testAuthorizeSuccess()
+    public function testFetchOrderSuccess()
     {
-        $this->setMockHttpResponse('RestAuthorizeSuccess.txt');
+        $this->setMockHttpResponse('RestFetchOrderSuccess.txt');
 
-        $response = $this->gateway->authorize($this->params)->send();
+        $response = $this->gateway->fetchOrder($this->params)->send();
 
         $this->assertTrue($response->isSuccessful());
-        $this->assertEquals('d9f80740-38f0-11e8-b467-0ed5f89f718b', $response->getTransactionReference());
+        $this->assertEquals('0L3952582F3664834', $response->getData()['id']);
         $this->assertNull($response->getMessage());
     }
 
-    public function testAuthorizeFailure()
+    public function testFetchOrderFailure()
     {
-        $this->setMockHttpResponse('RestAuthorizeFailure.txt');
+        $this->setMockHttpResponse('RestFetchOrderFailure.txt');
 
-        $response = $this->gateway->authorize($this->params)->send();
+        $response = $this->gateway->fetchOrder($this->params)->send();
 
         $this->assertFalse($response->isSuccessful());
-        $this->assertNull($response->getTransactionReference());
-        $this->assertSame('This request is invalid due to the current state of the payment.', $response->getMessage());
+        $this->assertEquals('156b7d1266281', $response->getData()['debug_id']);
+        $this->assertSame('The specified resource does not exist.', $response->getMessage());
     }
 }

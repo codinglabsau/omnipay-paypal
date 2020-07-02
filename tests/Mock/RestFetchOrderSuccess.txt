@@ -1,0 +1,104 @@
+HTTP/1.1 200 OK
+Server: Apache-Coyote/1.1
+PROXY_SERVER_INFO: host=slcsbplatformapiserv3001.slc.paypal.com;threadId=216
+Paypal-Debug-Id: 539b1c0678b08
+SERVER_INFO: paymentsplatformserv:v1.payments.payment&CalThreadId=4342&TopLevelTxnStartTime=14b8c84b1f3&Host=slcsbpaymentsplatformserv3002.slc.paypal.com&pid=8929
+Content-Language: *
+Date: Sun, 15 Feb 2015 09:14:43 GMT
+Content-Type: application/json
+Content-Length: 1632
+
+{
+  "id": "0L3952582F3664834",
+  "intent": "AUTHORIZE",
+  "purchase_units": [
+    {
+      "reference_id": "default",
+      "amount": {
+        "currency_code": "USD",
+        "value": "147.00",
+        "breakdown": {
+          "item_total": {
+            "currency_code": "USD",
+            "value": "143.00"
+          },
+          "shipping": {
+            "currency_code": "USD",
+            "value": "4.00"
+          },
+          "tax_total": {
+            "currency_code": "USD",
+            "value": "0.00"
+          },
+          "insurance": {
+            "currency_code": "USD",
+            "value": "0.00"
+          },
+          "shipping_discount": {
+            "currency_code": "USD",
+            "value": "0.00"
+          }
+        }
+      },
+      "payee": {
+        "email_address": "harry@highpants.com"
+      },
+      "description": "Some description",
+      "soft_descriptor": "Something",
+      "items": [
+        {
+          "name": "Nisi sequi aut quos doloribus.",
+          "unit_amount": {
+            "currency_code": "USD",
+            "value": "143.00"
+          },
+          "quantity": "1",
+          "sku": "289",
+          "category": "PHYSICAL_GOODS"
+        }
+      ],
+      "shipping": {
+        "name": {
+          "full_name": "Hubert Donnelly"
+        },
+        "address": {
+          "address_line_1": "47476 Blake Ford",
+          "admin_area_2": "New Kayleighview",
+          "admin_area_1": "New Jersey",
+          "postal_code": "56585",
+          "country_code": "AU"
+        }
+      }
+    }
+  ],
+  "payer": {
+    "name": {
+      "given_name": "Harry",
+      "surname": "Highpants"
+    },
+    "email_address": "harryhighpants@gmail.com",
+    "payer_id": "9WP772V5ES9D2",
+    "address": {
+      "country_code": "AU"
+    }
+  },
+  "create_time": "2020-07-02T01:04:07Z",
+  "links": [
+    {
+      "href": "https:\/\/api.sandbox.paypal.com\/v2\/checkout\/orders\/0L3952582F3664834",
+      "rel": "self",
+      "method": "GET"
+    },
+    {
+      "href": "https:\/\/api.sandbox.paypal.com\/v2\/checkout\/orders\/0L3952582F3664834",
+      "rel": "update",
+      "method": "PATCH"
+    },
+    {
+      "href": "https:\/\/api.sandbox.paypal.com\/v2\/checkout\/orders\/0L3952582F3664834\/authorize",
+      "rel": "authorize",
+      "method": "POST"
+    }
+  ],
+  "status": "APPROVED"
+}
